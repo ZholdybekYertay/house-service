@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DomService</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">GO + POSTGRESQL + JWT</p>
+      <h1>DomService</h1>
+      <p>Home-service request management system.</p>
+    </section>
+
+    <section class="card">
+      <h2>Admin login</h2>
+
+      <form id="login-form">
+        <label>
+          Email
+          <input
+            id="login-email"
+            type="email"
+            placeholder="admin@example.com"
+            required
+          />
+        </label>
+
+        <label>
+          Password
+          <input
+            id="login-password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+        </label>
+
+        <button type="submit">Login</button>
+        <button id="logout-button" class="secondary" type="button">
+          Logout
+        </button>
+
+        <p id="login-message"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Create service request</h2>
+
+      <form id="request-form">
+        <div class="grid">
+          <label>
+            Name
+            <input id="name" required maxlength="100" placeholder="Your name" />
+          </label>
+
+          <label>
+            Phone
+            <input
+              id="phone"
+              required
+              maxlength="30"
+              placeholder="+7 777 000 00 00"
+            />
+          </label>
+        </div>
+
+        <label>
+          Address
+          <input
+            id="address"
+            required
+            maxlength="255"
+            placeholder="Almaty, ..."
+          />
+        </label>
+
+        <label>
+          Problem
+          <textarea
+            id="problem"
+            required
+            rows="4"
+            placeholder="Describe the problem"
+          ></textarea>
+        </label>
+
+        <button type="submit">Create request</button>
+        <p id="message"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <div>
+          <h2>Admin requests</h2>
+          <p class="meta">
+            Login as admin to view and manage requests.
+          </p>
+        </div>
+
+        <button id="refresh" class="secondary" type="button">
+          Refresh
+        </button>
+      </div>
+
+      <div id="requests"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

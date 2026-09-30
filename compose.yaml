@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: domservice-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: domservice
+      POSTGRES_PASSWORD: domservice_local_dev
+      POSTGRES_DB: domservice
+    ports:
+      - "5434:5432"
+    volumes:
+      - domservice_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U domservice -d domservice"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  domservice_data:
